@@ -7,7 +7,7 @@ import _ from "lodash";
 
 class CusTableBody extends Component {
   renderCell = (item, column) => {
-    console.log(item);
+    // console.log(item);
     // console.log(column);
     //console.log(_.get(item, column.path));
     if (column.content) return column.content(item);

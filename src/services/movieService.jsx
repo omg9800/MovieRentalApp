@@ -4,7 +4,7 @@ import http from "./httpService";
 const apiEndpoint = "http://myrental-api.herokuapp.com/api/movies";
 
 export function getMovies() {
-  return http.get(apiEndpoint);
+  return http.get(apiEndpoint + "/");
 }
 
 export function getMovie(movieId) {
