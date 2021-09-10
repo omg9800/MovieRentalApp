@@ -1,0 +1,484 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+$listcolor: rgba(6, 76, 97, 0.767);
+$newmoviecolor: rgba(8, 46, 116, 0.537);
+//$bgcolor: url("./marek-piwnicki-U6WvLJU0l6o-unsplash.jpg");
+$txtcolor: black;
+.rent {
+  background: linear-gradient(to top, $newmoviecolor, rgba(134, 35, 52, 0.9));
+  height: 92vh;
+  width: 100vw;
+}
+.navbar {
+  display: flex;
+  list-style-type: none;
+  padding-left: 2vw;
+  height: 7vh;
+  background-color: #262626;
+  font-size: 2.5vh;
+  font-weight: 600;
+  align-items: center;
+  //max-width: 100vw;
+
+  a {
+    text-decoration: none;
+    color: white;
+  }
+}
+
+.cont {
+  float: left;
+}
+
+.navbar-nav {
+  display: flex;
+  list-style-type: none;
+  padding-left: 55vw;
+  height: 7vh;
+  background-color: #262626;
+  font-size: 2.5vh;
+  font-weight: 400;
+  align-items: center;
+
+  li:last-child {
+    margin-right: 0;
+  }
+  li {
+    margin-right: 4vw;
+  }
+  a {
+    text-decoration: none;
+    color: white;
+  }
+  a:hover {
+    height: 8vh;
+    color: rgb(107, 58, 66);
+  }
+}
+
+.regall {
+  height: 92vh;
+  width: 100vw;
+  background-image: url("./23456.jpg");
+  background-size: cover;
+  padding-top: 15vh;
+}
+
+.reg {
+  h1 {
+    margin-bottom: 5vh;
+    margin-top: 5vh;
+  }
+
+  font-size: larger;
+  margin: auto;
+  width: 60%;
+  height: 60vh;
+  text-align: center;
+  border: 3px solid $listcolor;
+  border-radius: 15px;
+  position: relative;
+  //background-color: $listcolor;
+  background: linear-gradient(to top, rgba(0, 0, 92, 0.5), rgba(0, 0, 92, 0.7));
+  label {
+    padding: 15px 70px 15px 0;
+    display: inline-block;
+  }
+
+  input,
+  select {
+    color: black;
+    border-radius: 4px;
+    font-size: 2vh;
+    margin-right: 150px;
+    float: right;
+    margin-bottom: 3vh;
+    width: 25vw;
+    height: 4vh;
+  }
+}
+
+.reg {
+  h1 {
+    margin-bottom: 5vh;
+    margin-top: 5vh;
+
+    label {
+      padding-right: 15%;
+      color: red;
+    }
+  }
+
+  font-size: larger;
+  margin: auto;
+  width: 60%;
+  height: 60vh;
+  text-align: center;
+  border: 3px solid $listcolor;
+  border-radius: 15px;
+  position: relative;
+  //background-color: $listcolor;
+  background: linear-gradient(to top, rgba(0, 0, 92, 0.5), rgba(0, 0, 92, 0.7));
+  label {
+    // padding: 15px 70px 15px 0;
+    // display: inline-block;
+  }
+
+  input,
+  select {
+    color: black;
+    border-radius: 4px;
+    font-size: 2vh;
+    margin-right: 150px;
+    float: right;
+    width: 25vw;
+    height: 4vh;
+  }
+
+  button {
+    height: 4vh;
+    width: 10vw;
+    background-color: rgb(0, 89, 255);
+    position: absolute;
+    margin-top: 1.5vh;
+    font-size: large;
+    bottom: 5vh;
+    right: 3vw;
+
+    border-radius: 2vh;
+  }
+}
+
+.colg {
+  display: flex;
+  z-index: 10;
+
+  // background: linear-gradient(
+  //   to bottom,
+  //   rgb(32, 32, 112),
+  //   lightblue
+  // ); //url("./SL.121019.25870.12.jpg");
+  width: 100vw;
+  height: fit-content;
+  //background-image: url("./23456.jpg");
+  background-size: cover;
+  background-image: url("./23456.jpg");
+}
+.list {
+  font-size: large;
+  margin-left: 2vw;
+  width: 77vw;
+  min-height: 87vh;
+  text-align: center;
+  margin-top: 5vh;
+  margin-right: 4vw;
+  color: rgba(255, 255, 255, 0.692);
+  // background: linear-gradient(
+  //   to bottom,
+  //   rgba(rgb(15, 56, 131), 0.5),
+  //   rgba(rgb(15, 56, 131), 0.6)
+  // );
+  background: linear-gradient(
+    to bottom,
+    rgba(rgb(0, 0, 92), 0.5),
+    rgba(rgb(0, 0, 92), 0.7)
+  );
+  //background: linear-gradient(to top, rgba(red, 0.5), rgba(grey, 0.6));
+
+  //border: 2px solid;
+  border-radius: 1px;
+
+  button {
+    background-color: maroon;
+    cursor: pointer;
+    float: right;
+    width: 100px;
+    height: 4vh;
+    font-size: large;
+    font-weight: 400;
+    border-radius: 5px;
+    color: rgba(255, 255, 255, 0.692);
+  }
+}
+
+.rowgenre {
+  //background-color: $listcolor;
+  width: 20vw;
+  max-height: fit-content;
+  margin-left: 4vw;
+  font-size: 2vh;
+  font-weight: 200;
+  list-style-type: none;
+  margin-top: 5vh;
+
+  color: rgba(255, 255, 255, 0.692);
+  // background: linear-gradient(
+  //   to bottom,
+  //   rgba(rgb(15, 56, 131), 0.5),
+  //   rgba(rgb(15, 56, 131), 0.6)
+  // );
+  background: linear-gradient(
+    to bottom,
+    rgba(rgb(0, 0, 92), 0.5),
+    rgba(rgb(0, 0, 92), 0.6)
+  );
+  //border: 2px solid;
+  border-radius: 1px;
+
+  ul {
+    list-style-type: none;
+    padding-top: 0vh;
+    li {
+      text-align: center;
+      padding-top: 2vh;
+      padding-bottom: 2vh;
+      font-size: larger;
+      font-weight: 400;
+      cursor: pointer;
+      border-bottom: 0.1px solid;
+      margin-bottom: 4px;
+      // border-radius: 5vh;
+    }
+  }
+}
+
+.movielist {
+  font-size: large;
+  margin-left: 5vw;
+  margin-right: 5vw;
+  width: 60vw;
+  padding-top: 8vh;
+  //color: rgba(255, 255, 255, 0.767);
+
+  td {
+    padding-top: 5vh;
+    padding-right: 5vw;
+  }
+  text-align: justify;
+}
+
+.newmovie {
+  padding-top: 5vh;
+
+  p {
+    padding: 3vh 0 2vh 0;
+    font-size: large;
+  }
+}
+
+.btn-newmovie {
+  background-color: rgba(16, 35, 206, 0.795);
+  cursor: pointer;
+  padding: 1vh;
+  font-size: large;
+  font-weight: 400;
+  border-radius: 5px;
+  color: rgba(255, 255, 255, 0.692);
+
+  text-decoration: none;
+}
+
+.pagination {
+  display: flex;
+  list-style-type: none;
+  margin-left: 5vw;
+  margin-top: 4vh;
+  cursor: pointer;
+
+  li {
+    padding: 0.5vw;
+  }
+
+  .paginat {
+    background-color: rgba(16, 35, 206, 0.795);
+    border-radius: 4px;
+    cursor: pointer;
+  }
+}
+
+.btn-newrental {
+  background-color: rgba(16, 35, 206, 0.795);
+  cursor: pointer;
+  padding: 3px 1.5vw 3px 1.5vw;
+  font-size: large;
+  font-weight: 400;
+  float: right;
+  border-radius: 5px;
+  color: rgba(255, 255, 255, 0.692);
+  //margin-left: 8vw;
+  text-decoration: none;
+}
+
+.list-group-item-active {
+  background-color: rgba(16, 35, 206, 0.795);
+}
+
+.search {
+  width: 40vw;
+  height: 4vh;
+  //border: 2px solid red;
+  border-radius: 4px;
+}
+
+.search:focus {
+  border: 2.5px solid rgba(16, 35, 206, 0.795);
+}
+
+.alert-danger {
+  color: white;
+  text-align: center;
+  margin-left: 10vw;
+  position: absolute;
+  bottom: 15vh;
+  left: 15vw;
+}
+
+.parent {
+  padding: 2vh;
+  height: 92vh;
+  width: 100vw;
+  background-image: url("./23456.jpg");
+  background-size: cover;
+  display: flex;
+}
+.rentdetails {
+  padding-right: 2vh;
+  width: 76vw;
+  height: 90vh;
+  background: linear-gradient(to top, rgba(0, 0, 92, 0.5), rgba(0, 0, 92, 0.7));
+  padding-top: 5vh;
+  margin-left: 1vw;
+  color: white;
+  font-size: 1.5vw;
+}
+.cdetails {
+  width: 25vw;
+  height: 90vh;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 92, 0.5),
+    rgba(0, 0, 92, 0.3)
+  );
+  text-align: center;
+  padding-top: 5vh;
+  color: white;
+  font-size: 1vw;
+
+  li {
+    font-size: larger;
+    font-weight: bold;
+    display: flex;
+    padding-left: 5vw;
+    margin-bottom: 2vh;
+    p {
+      margin-right: 2vw;
+    }
+  }
+
+  img {
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    height: 15vh;
+    width: 10vw;
+  }
+}
+
+.rentalform {
+  position: absolute;
+  left: 30vw;
+  right: 30vw;
+  top: 20vh;
+  bottom: 20vh;
+
+  background: linear-gradient(to top, rgba(0, 0, 92, 0.5), rgba(0, 0, 93, 0.7));
+  width: 40vw;
+  height: 52vh;
+  padding-top: 10vh;
+  font-size: larger;
+  text-align: center;
+  font-weight: bold;
+
+  input {
+    margin-top: 3vh;
+    height: 5vh;
+    font-size: larger;
+    align-items: center;
+  }
+
+  .submitbtn {
+    display: block;
+    margin: auto;
+    width: 20%;
+    height: 4vh;
+    margin-top: 10vh;
+    text-align: center;
+  }
+}
+
+.fullpage {
+  padding-left: 15vw;
+  font-size: large;
+  margin-left: 2vw;
+
+  width: 99vw;
+  min-height: 60vh;
+  position: relative;
+  margin-top: 30vh;
+  margin-right: 2vw;
+  color: rgba(255, 255, 255, 0.692);
+
+  background: linear-gradient(
+    to bottom,
+    rgba(rgb(0, 0, 92), 0.5),
+    rgba(rgb(0, 0, 92), 0.7)
+  );
+
+  border-radius: 1px;
+
+  button {
+    background-color: maroon;
+    cursor: pointer;
+    float: right;
+    width: 100px;
+    height: 4vh;
+    font-size: large;
+    font-weight: 400;
+    border-radius: 5px;
+    color: rgba(255, 255, 255, 0.692);
+  }
+}
+
+.top {
+  position: absolute;
+  bottom: 40vw;
+  left: 31vw;
+  top: 10vh;
+  text-align: center;
+}
+
+.btn-customer {
+  color: rgba(255, 255, 255, 0.692);
+  text-decoration: none;
+}
+
+.rentedMovies {
+  margin: 10% 5% 10% 5%;
+
+  th,
+  td {
+    //border: 1px solid black;
+    padding-right: 100px;
+    padding-bottom: 2vw;
+    text-align: center;
+  }
+}
+
+.addcustomer {
+  input {
+    margin-left: 10vw;
+  }
+}
