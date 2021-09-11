@@ -1,10 +1,10 @@
 import http from "./httpService";
 
 // const apiEndpoint = "http://localhost:3000/api/movies";
-const apiEndpoint = "http://myrental-api.herokuapp.com/api/movies";
+const apiEndpoint = "https://myrental-api.herokuapp.com/api/movies";
 
 export function getMovies() {
-  return http.get(apiEndpoint + "/");
+  return http.get(apiEndpoint);
 }
 
 export function getMovie(movieId) {
