@@ -32,7 +32,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <ToastContainer />
+        <ToastContainer style={{ fontSize: "16px" }} />
         <NavBar user={this.state.user} />
         <main className="container">
           <Switch>

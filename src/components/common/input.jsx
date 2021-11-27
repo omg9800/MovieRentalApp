@@ -8,7 +8,7 @@ const Input = ({ name, label, focus, error, type, value, onChange }) => {
         {label}
       </label>
       <input
-        className="login"
+        className="login-input"
         name={name}
         value={value}
         onChange={onChange}

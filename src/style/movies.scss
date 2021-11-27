@@ -26,7 +26,7 @@ $txtcolor: black;
   padding-left: 2vw;
   height: 7vh;
   background-color: #262626;
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: 600;
   align-items: center;
   max-width: 100vw;
@@ -51,7 +51,7 @@ $txtcolor: black;
   //padding-left: 55vw;
   height: 7vh;
   background-color: #262626;
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   font-weight: 400;
   align-items: center;
   justify-content: flex-start;
@@ -116,7 +116,7 @@ $txtcolor: black;
 
 .login-all {
   height: 92vh;
-  width: 100vw;
+  width: 110vw;
   background-image: url("./23456.jpg");
   background-size: cover;
   display: flex;
@@ -126,7 +126,9 @@ $txtcolor: black;
 
 .login {
   width: 500px;
-  height: 350px;
+  height: max-content;
+  padding-top: 3vh;
+  padding-bottom: 3vh;
   background: linear-gradient(to top, rgba(0, 0, 92, 0.5), rgba(0, 0, 92, 0.7));
   display: flex;
   flex-direction: column;
@@ -139,7 +141,9 @@ $txtcolor: black;
     font-size: 1.8rem;
     color: #ffffff;
   }
-  input {
+  input,
+  select {
+    display: block;
     color: #262626;
     border-radius: 4px;
     font-size: 1.4rem;

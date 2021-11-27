@@ -4,6 +4,7 @@ import CustomersTable from "./customersTable";
 import { Link } from "react-router-dom";
 import Pagination from "./common/pagination";
 import { paginate } from "../utils/paginate";
+import App from "./loader/Loader";
 import {
   getCustomers,
   deleteCustomer,
@@ -27,6 +28,7 @@ class Movies extends Component {
     movies: [],
     //selectedGenre: { _id: "", name: "All Genre" },
     selectedGenre: null,
+    flag: true,
   };
 
   async componentDidMount() {
@@ -39,6 +41,7 @@ class Movies extends Component {
     // rentals.data.map((m) => customers.push(m.customer));
     // console.log(customers);
     // console.log(customer);
+    this.setState({ flag: false });
     this.setState({ customers });
   }
 
@@ -113,14 +116,29 @@ class Movies extends Component {
     const count = this.state.customers.length;
     const { pageSize, currentPage, sortColumn, searchQuery } = this.state;
 
-    if (count === 0) return <AddCustomer />;
+    if (count === 0 && this.flag == false) return <AddCustomer />;
 
     const { totalCount, data: customers } = this.getPageData();
 
     return (
-      <div className="row">
-        <div className="colg">
-          {/* <div className="rowgenre">
+      <>
+        {this.state.flag ? (
+          <div
+            className="center"
+            style={{
+              // backgroundColor: "#02176f",
+              height: "100vh",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <App />
+          </div>
+        ) : (
+          <div className="row">
+            <div className="colg">
+              {/* <div className="rowgenre">
             <ListGroup
               items={this.state.genres}
               textProperty="_id"
@@ -130,47 +148,49 @@ class Movies extends Component {
             />
           </div> */}
 
-          <div className="top">
-            <div className="newmovie">
-              <Link
-                className="btn-newmovie"
-                to="/customers/newcustomer"
-                style={{ marginBottom: 20 }}
-              >
-                New Customer
-              </Link>
+              <div className="top">
+                <div className="newmovie">
+                  <Link
+                    className="btn-newmovie"
+                    to="/customers/newcustomer"
+                    style={{ marginBottom: 20 }}
+                  >
+                    New Customer
+                  </Link>
 
-              <p>Showing {totalCount} customers in the database</p>
+                  <p>Showing {totalCount} customers in the database</p>
+                </div>
+
+                <input
+                  type="text"
+                  name="query"
+                  className="search"
+                  placeholder="Search..."
+                  value={this.state.searchQuery}
+                  // onChange={(e) => onchange={(e.currentTarget.value)}}
+                  onChange={this.handleSearch}
+                />
+              </div>
+              <div className="fullpage">
+                <CustomersTable
+                  customers={customers}
+                  sortColumn={sortColumn}
+                  onDelete={this.handleDelete}
+                  onLike={this.handleLike}
+                  onSort={this.handleSort}
+                />
+
+                <Pagination
+                  itemsCount={totalCount}
+                  pageSize={pageSize}
+                  currentPage={currentPage}
+                  onPageChange={this.handlePageChange}
+                />
+              </div>
             </div>
-
-            <input
-              type="text"
-              name="query"
-              className="search"
-              placeholder="Search..."
-              value={this.state.searchQuery}
-              // onChange={(e) => onchange={(e.currentTarget.value)}}
-              onChange={this.handleSearch}
-            />
           </div>
-          <div className="fullpage">
-            <CustomersTable
-              customers={customers}
-              sortColumn={sortColumn}
-              onDelete={this.handleDelete}
-              onLike={this.handleLike}
-              onSort={this.handleSort}
-            />
-
-            <Pagination
-              itemsCount={totalCount}
-              pageSize={pageSize}
-              currentPage={currentPage}
-              onPageChange={this.handlePageChange}
-            />
-          </div>
-        </div>
-      </div>
+        )}
+      </>
     );
   }
 }

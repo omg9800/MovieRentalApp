@@ -40,6 +40,7 @@ class AddCustomer extends Form {
     try {
       await saveCustomer(customer);
       toast.success("Customer added Successfully.");
+      console.log(toast);
     } catch (e) {
       toast.error(e.message);
     }
