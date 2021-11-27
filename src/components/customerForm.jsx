@@ -2,6 +2,8 @@ import React from "react";
 import Joi from "joi-browser";
 import Form from "./common/form";
 import { saveCustomer } from "../services/custService";
+import { toast } from "react-toastify";
+import Input from "../components/common/input";
 
 class AddCustomer extends Form {
   state = {
@@ -35,7 +37,12 @@ class AddCustomer extends Form {
     e.preventDefault();
     const customer = this.mapToViewModel();
     console.log(customer);
-    await saveCustomer(customer);
+    try {
+      await saveCustomer(customer);
+      toast.success("Customer added Successfully.");
+    } catch (e) {
+      toast.error(e.message);
+    }
   };
   componentDidMount = async () => {
     // const movieId = this.props.match.params.id;
@@ -57,34 +64,47 @@ class AddCustomer extends Form {
 
   render() {
     return (
-      <div className="regall">
-        <div className="reg">
+      <div className="login-all">
+        <div className="login">
           <h1>Add a New Customer</h1>
           <form onSubmit={this.handleSubmit}>
-            <div className="addcustomer">
-              <label>
-                Name:
-                <input
-                  type="text"
-                  name="name"
-                  value={this.state.name}
-                  onChange={this.handleChange}
-                />
-              </label>
-              <label>
-                Phone:
-                <input
-                  label="Phone"
-                  type="text"
-                  name="phone"
-                  value={this.state.phone}
-                  onChange={this.handleChange}
-                />
-              </label>
-              <button className="submitbtn" onClick={this.handleSubmit}>
-                Submit
-              </button>
-            </div>
+            <label
+              style={{
+                display: "block",
+                marginBottom: "35px",
+                marginTop: "15px",
+              }}
+            >
+              Name:
+              <input
+                // style={{ display: "block", marginBottom: "25px" }}
+                type="text"
+                name="name"
+                value={this.state.name}
+                onChange={this.handleChange}
+              />
+            </label>
+
+            <label
+              style={{
+                display: "block",
+                marginBottom: "15px",
+                marginTop: "15px",
+              }}
+            >
+              Phone:
+              <input
+                label="Phone"
+                type="text"
+                name="phone"
+                value={this.state.phone}
+                onChange={this.handleChange}
+              />
+            </label>
+
+            <button className="submitbtn" onClick={this.handleSubmit}>
+              Submit
+            </button>
           </form>
         </div>
       </div>

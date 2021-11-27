@@ -19,6 +19,7 @@ export function getCustomer(customerId) {
 }
 
 export function saveCustomer(customer) {
+  console.log(customer);
   if (customer._id) {
     const body = { ...customer };
     delete body._id;

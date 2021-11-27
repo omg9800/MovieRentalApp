@@ -40,8 +40,8 @@ class LoginForm extends Form {
 
   render() {
     return (
-      <div className="regall">
-        <div className="reg">
+      <div className="login-all">
+        <div className="login">
           <h1>Login</h1>
           <form onSubmit={this.handleSubmit}>
             {this.renderInput("username", "Username")}

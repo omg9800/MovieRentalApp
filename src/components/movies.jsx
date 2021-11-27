@@ -10,6 +10,7 @@ import { getGenres } from "../services/genreService";
 import _ from "lodash";
 import { getMovies, deleteMovie } from "../services/movieService";
 import { toast } from "react-toastify";
+import App from "./loader/Loader";
 var axios = require("axios").default;
 
 class Movies extends Component {
@@ -23,6 +24,7 @@ class Movies extends Component {
     searchQuery: "",
     //selectedGenre: { _id: "", name: "All Genre" },
     selectedGenre: null,
+    flag: true,
   };
 
   async componentDidMount() {
@@ -31,6 +33,8 @@ class Movies extends Component {
     const genres = [{ _id: "", name: "All Genre" }, ...data];
     //console.log(this.state.genres);
     const { data: movies } = await getMovies();
+    // this.props.setLoading(false);
+    this.setState({ flag: false });
     this.setState({ movies, genres });
   }
 
@@ -113,7 +117,7 @@ class Movies extends Component {
 
   handleSearch = (e) => {
     this.setState({
-      searchQuery: e.currentTarget.value,
+      searchQuery: e.target.value,
       selectedGenre: null,
       currentPage: 1,
     });
@@ -121,66 +125,89 @@ class Movies extends Component {
   };
 
   render() {
+    console.log(this.props);
     const count = this.state.movies.length;
     const { pageSize, currentPage, sortColumn, searchQuery } = this.state;
 
-    if (count === 0) return <p>There are no movies in the Database</p>;
+    // if (count === 0)
+    //   return (
+    //     <p style={{ fontSize: "1.6rem" }}>
+    //       There are no movies in the Database
+    //     </p>
+    //   );
 
     const { totalCount, data: movies } = this.getPageData();
 
     return (
-      <div className="row">
-        <div className="colg">
-          <div className="rowgenre">
-            <ListGroup
-              items={this.state.genres}
-              textProperty="_id"
-              valueProperty="name"
-              selectedItem={this.state.selectedGenre}
-              onItemSelect={this.handleGenreSelect}
-            />
+      <>
+        {this.state.flag ? (
+          <div
+            className="center"
+            style={{
+              // backgroundColor: "#02176f",
+              height: "100vh",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <App />
           </div>
-          <div className="list">
-            <div className="newmovie">
-              <Link
-                className="btn-newmovie"
-                to="/movies/newmovie"
-                style={{ marginBottom: 20 }}
-              >
-                New Movies
-              </Link>
+        ) : (
+          <div className="row">
+            <div className="colg">
+              <div className="rowgenre">
+                <ListGroup
+                  items={this.state.genres}
+                  textProperty="_id"
+                  valueProperty="name"
+                  selectedItem={this.state.selectedGenre}
+                  onItemSelect={this.handleGenreSelect}
+                />
+              </div>
+              <div className="list">
+                <div className="newmovie">
+                  <Link
+                    className="btn-newmovie"
+                    to="/movies/newmovie"
+                    style={{ marginBottom: 20 }}
+                  >
+                    New Movies
+                  </Link>
 
-              <p>Showing {totalCount} movies in the database</p>
+                  <p>Showing {totalCount} movies in the database</p>
+                </div>
+
+                <input
+                  type="text"
+                  name="query"
+                  className="search"
+                  placeholder="Search..."
+                  value={this.state.searchQuery}
+                  // onChange={(e) => onchange={(e.currentTarget.value)}}
+                  onChange={this.handleSearch}
+                />
+
+                <MoviesTable
+                  movies={movies}
+                  sortColumn={sortColumn}
+                  onDelete={this.handleDelete}
+                  onLike={this.handleLike}
+                  onSort={this.handleSort}
+                  onRent={this.handleRent}
+                />
+
+                <Pagination
+                  itemsCount={totalCount}
+                  pageSize={pageSize}
+                  currentPage={currentPage}
+                  onPageChange={this.handlePageChange}
+                />
+              </div>
             </div>
-
-            <input
-              type="text"
-              name="query"
-              className="search"
-              placeholder="Search..."
-              value={this.state.searchQuery}
-              // onChange={(e) => onchange={(e.currentTarget.value)}}
-              onChange={this.handleSearch}
-            />
-
-            <MoviesTable
-              movies={movies}
-              sortColumn={sortColumn}
-              onDelete={this.handleDelete}
-              onLike={this.handleLike}
-              onSort={this.handleSort}
-              onRent={this.handleRent}
-            />
-
-            <Pagination
-              itemsCount={totalCount}
-              pageSize={pageSize}
-              currentPage={currentPage}
-              onPageChange={this.handlePageChange}
-            />
           </div>
-        </div>
-      </div>
+        )}
+      </>
     );
   }
 }

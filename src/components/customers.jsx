@@ -13,6 +13,7 @@ import { getRentals } from "../services/rentService";
 import _ from "lodash";
 //import { } from "../services/movieService";
 import { toast } from "react-toastify";
+import AddCustomer from "./customerForm";
 var axios = require("axios").default;
 
 class Movies extends Component {
@@ -112,7 +113,7 @@ class Movies extends Component {
     const count = this.state.customers.length;
     const { pageSize, currentPage, sortColumn, searchQuery } = this.state;
 
-    if (count === 0) return <p>There are no customers in the Database</p>;
+    if (count === 0) return <AddCustomer />;
 
     const { totalCount, data: customers } = this.getPageData();
 

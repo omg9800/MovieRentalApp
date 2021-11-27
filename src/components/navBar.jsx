@@ -12,6 +12,7 @@ const NavBar = ({ user }) => {
           VIDLY
         </Link>
       </div>
+      <div className="blank"></div>
       <ul className="navbar-nav">
         <li className="nav-item">
           <NavLink className="nav-link " aria-current="page" to="/movies">
